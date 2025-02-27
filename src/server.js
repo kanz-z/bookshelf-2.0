@@ -1,7 +1,7 @@
 const Hapi = require('@hapi/hapi');
 
 const server = Hapi.server({
-  port: process.env.PORT || 9000, // Vercel bakal tentuin port otomatis
+  port: process.env.PORT || 0.0.0.0, // Vercel bakal tentuin port otomatis
   host: 'localhost',
   routes: {
     cors: {
