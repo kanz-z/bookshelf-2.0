@@ -3,11 +3,15 @@ const routes = require("./routes");
 
 const init = async () => {
   const server = Hapi.server({
-    port: 5000,
+    port: 9000,
     host: process.env.NODE_ENV !== "production" ? "localhost" : "0.0.0.0",
     routes: {
       cors: {
-        origin: ["*"],
+        origin: ["*"], // Izinkan semua domain
+        headers: ["Accept", "Content-Type", "Authorization"],
+        exposedHeaders: ["Authorization"],
+        additionalHeaders: ["X-Requested-With"],
+        credentials: true, // Jika butuh cookies/credentials
       },
     },
   });
