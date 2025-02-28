@@ -5,7 +5,8 @@ const server = Hapi.server({
   host: process.env.HOST || '0.0.0.0',
   routes: {
     cors: {
-      origin: ['*'],
+      origin: ['*', 'https://bookshelf-2-0-git-main-kanzzs-projects.vercel.app/api/books'],
+      credentials: true,
     },
   },
 });
