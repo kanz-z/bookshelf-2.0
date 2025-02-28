@@ -32,6 +32,13 @@ const routes = [
     path: '/buku/{id}',
     handler: hapus,
   },
+  {
+    method: 'GET',
+    path: '/',
+    handler: (request, h) => {
+        return { message: 'CORS enabled!' };
+    }
+  }
 ];
 
 module.exports = routes;
