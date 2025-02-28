@@ -5,7 +5,7 @@
   ],
   "routes": [
     { "src": "/api/(.*)", "dest": "/src/server.js" }
-  ]
+  ],
   "headers": [
     {
       "source": "/(.*)",
