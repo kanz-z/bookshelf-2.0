@@ -5,8 +5,10 @@ const server = Hapi.server({
   host: process.env.HOST || '0.0.0.0',
   routes: {
     cors: {
-      origin: ['*', 'https://bookshelf-2-0-git-main-kanzzs-projects.vercel.app/api'],
-      credentials: true,
+      origin: ['*'], // Izinin semua origin (gak direkomendasikan buat production)
+      headers: ['Accept', 'Content-Type', 'Authorization'],
+      exposedHeaders: ['Authorization'],
+      credentials: true
     },
   },
 });
@@ -29,3 +31,11 @@ module.exports = async (req, res) => {
     res.status(500).send({ error: 'Internal Server Error', message: error.message });
   }
 };
+
+process.on('unhandledRejection', (err) => {
+    console.log(err);
+    process.exit(1);
+});
+
+
+
